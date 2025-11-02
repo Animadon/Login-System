@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Authentication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">Login Authentication System</h1>
+
+    {% if logged_in %}
+        <div class="text-center mb-6">
+            <p class="text-2xl mb-8">Hello, {{ username }}!</p>
+            <a href="{{ url_for('logout') }}" class="bg-red-500 text-white py-2 px-4 rounded">Logout</a>
+    
+        </div>
+    {% else %}
+       <div class="grid grid-cols-2">
+         <div class="col-span-1 mx-auto bg-white p-6 rounded-md shadow mb-6">
+            <h2 class="text-2xl font-semibold mb-4"> Register</h2>
+            <input type="text" id="register_username" placeholder="Username" class="border p-2 w-full mb-2">
+            <input type="password" id="register_password" class="border p-2 w-full mb-2" placeholder="Password">
+            <button id="register" class="bg-blue-500 text-white py-2 px-4 rounded">Register</button>
+          </div>
+
+          <div class="col-span-1 mx-auto bg-white p-6 rounded-md shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Login</h2>
+            <input type="text" id="login_username" placeholder="Username" class="border p-2 w-full mb-2">
+           <input type="password" id ="login_password" class="border p-2 w-full mb-2" placeholder="Password">
+           <button id="login" class ="bg-blue-500 text-white py-2 px-4 rounded">Login</button>
+          </div>
+
+        </div>
+    {% endif %}
+</body>
+</html>
+            
